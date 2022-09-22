@@ -2,8 +2,6 @@ import 'package:advansio_test/utils/constants/colors.dart';
 import 'package:advansio_test/utils/constants/helpers.dart';
 import 'package:advansio_test/utils/styles.dart';
 import 'package:advansio_test/views/dashboard/dashboard_view.dart';
-import 'package:advansio_test/views/landingpage.dart';
-import 'package:advansio_test/views/news_viewmodel/otp_screens/create_pin_view.dart';
 import 'package:advansio_test/widgets/advansio_button.dart';
 import 'package:flutter/material.dart';
 
@@ -22,7 +20,7 @@ class _TransferSuccessfulUpViewState extends State<TransferSuccessfulUpView> {
     return Scaffold(
       backgroundColor: AppColors.whiteBackgroundColor,
       //
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: SafeArea(

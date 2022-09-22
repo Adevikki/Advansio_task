@@ -21,7 +21,7 @@ class TransferSourceRepository {
   TransferTypeOptionList get balanceType => _balanceType;
 
   Future<TransferTypeOptionList> fetchTransferSources() async{
-    return await Future.delayed(Duration(milliseconds: 5), () {
+    return await Future.delayed(const Duration(milliseconds: 5), () {
       return [
         TransferClass(
             transfer: TransferSource.online,

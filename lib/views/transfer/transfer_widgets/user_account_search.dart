@@ -1,6 +1,5 @@
 import 'package:advansio_test/utils/constants/colors.dart';
 import 'package:advansio_test/utils/forms/textformfield.dart';
-import 'package:advansio_test/views/transfer/transfer_view.dart';
 import 'package:advansio_test/views/transfer/transfer_widgets/bank_contact_widget.dart';
 import 'package:flutter/material.dart';
 

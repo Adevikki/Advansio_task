@@ -1,6 +1,5 @@
 import 'package:advansio_test/utils/constants/colors.dart';
 import 'package:advansio_test/utils/styles.dart';
-import 'package:advansio_test/views/dashboard/dashboard_view.dart';
 import 'package:advansio_test/views/success_screens/transfer_success_screen.dart';
 import 'package:advansio_test/widgets/advansio_button.dart';
 import 'package:advansio_test/widgets/pin_code_textfield.dart';

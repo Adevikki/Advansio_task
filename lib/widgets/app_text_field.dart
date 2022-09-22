@@ -68,7 +68,7 @@ class _AppTextFieldState extends State<AppTextField> {
                 height: 10,
               )
             : Container(),
-        Container(
+        SizedBox(
           // height: widget.isInvalid ? null : 70,
           // constraints: widget.isInvalid
           //     ? widget.suffixIcon != null

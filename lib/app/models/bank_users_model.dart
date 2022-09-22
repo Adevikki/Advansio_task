@@ -1,4 +1,4 @@
-import 'package:advansio_test/app/models/transfer_bank_model.dart';
+
 import 'package:hooks_riverpod/hooks_riverpod.dart';
 
 class BankUserClass {

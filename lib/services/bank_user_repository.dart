@@ -20,7 +20,7 @@ class BankUserRepository {
   BankUserList get balanceType => _balanceType;
 
   Future<BankUserList> fetchBankUser() async {
-    return await Future.delayed(Duration(milliseconds: 5), () {
+    return await Future.delayed(const Duration(milliseconds: 5), () {
       return [
         BankUserClass(
             bankUser: BankUserSource.user1,

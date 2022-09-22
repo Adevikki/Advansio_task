@@ -51,7 +51,7 @@ class _LandingPageState extends State<LandingPage> {
           SafeArea(
             child: SingleChildScrollView(
               physics: const ClampingScrollPhysics(),
-              child: Container(
+              child: SizedBox(
                 height: MediaQuery.of(context).size.height,
                 child: Column(
                   children: [

@@ -19,7 +19,7 @@ class _SuccessSignUpViewState extends State<SuccessSignUpView> {
     return Scaffold(
       backgroundColor: AppColors.whiteBackgroundColor,
       //
-      body: Container(
+      body: SizedBox(
         height: MediaQuery.of(context).size.height,
         width: double.infinity,
         child: SafeArea(

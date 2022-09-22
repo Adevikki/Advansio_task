@@ -120,7 +120,7 @@ class CompleteVerificationWidget extends StatelessWidget {
                               const SizedBox(
                                 height: 13,
                               ),
-                              Container(
+                              SizedBox(
                                 width: MediaQuery.of(context).size.width * 0.58,
                                 child: Text(
                                   'When you register for an account, we collect personal informmation',

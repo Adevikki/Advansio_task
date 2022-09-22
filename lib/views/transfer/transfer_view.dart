@@ -86,13 +86,16 @@ class _TransferState extends State<Transfer> {
                     ),
                     const SizedBox(height: 32),
                     Expanded(
-                      child: AsyncValueWidget<TransferTypeOptionList>(
-                        value: transferTypeFutureProvider,
-                        data: (transferType) {
-                          return TransferTypes(
-                            transferType: transferType,
-                          );
-                        },
+                      child: SizedBox(
+                        width: double.infinity,
+                        child: AsyncValueWidget<TransferTypeOptionList>(
+                          value: transferTypeFutureProvider,
+                          data: (transferType) {
+                            return TransferTypes(
+                              transferType: transferType,
+                            );
+                          },
+                        ),
                       ),
                     ),
                   ],
@@ -158,9 +161,3 @@ class _TransferState extends State<Transfer> {
     });
   }
 }
-
-
-
-
-
-

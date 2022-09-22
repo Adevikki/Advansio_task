@@ -1,9 +1,6 @@
-import 'package:advansio_test/utils/constants.dart';
 import 'package:advansio_test/utils/forms/text_input_field_widget.dart';
-import 'package:advansio_test/utils/styles.dart';
 import 'package:advansio_test/utils/validations.dart';
 import 'package:flutter/material.dart';
-import 'package:flutter_svg/flutter_svg.dart';
 
 class EmailTextField extends StatelessWidget {
   const EmailTextField({

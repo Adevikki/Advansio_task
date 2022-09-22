@@ -23,6 +23,7 @@ class NewsPageState extends ConsumerState<NewsPage> {
   @override
   Widget build(BuildContext context) {
     final view = ref.watch(newsModelProvider);
+    final model = ref.read(newsModelProvider.notifier);
     return Scaffold(
       body: view.isLoading == Status.loading
           ? const Align(
@@ -35,59 +36,68 @@ class NewsPageState extends ConsumerState<NewsPage> {
                 ),
               ),
             )
-          : SafeArea(
-              child: Column(
-                crossAxisAlignment: CrossAxisAlignment.start,
-                children: [
-                  Container(
-                    padding: const EdgeInsets.all(7),
-                    margin: const EdgeInsets.all(20),
-                    child: Text(
-                      "News",
-                      style: GoogleFonts.lato(
-                        fontSize: 34,
-                        fontWeight: FontWeight.bold,
-                      ),
+          : view.isLoading == Status.error
+              ? TextButton(
+                  onPressed: () => model.getNews(retry: true),
+                  child: Text(
+                    "${view.errorMessage}",
+                    style: const TextStyle(
+                      fontSize: 18,
                     ),
-                    decoration: const BoxDecoration(
-                      color: Colors.white,
-                      boxShadow: [
-                        BoxShadow(
-                          blurRadius: 8,
-                          color: Color.fromRGBO(0, 0, 0, 0.3),
-                          offset: Offset(0, 0),
-                          spreadRadius: 4,
+                  ))
+              : SafeArea(
+                  child: Column(
+                    crossAxisAlignment: CrossAxisAlignment.start,
+                    children: [
+                      Container(
+                        padding: const EdgeInsets.all(7),
+                        margin: const EdgeInsets.all(20),
+                        child: Text(
+                          "News",
+                          style: GoogleFonts.lato(
+                            fontSize: 34,
+                            fontWeight: FontWeight.bold,
+                          ),
                         ),
-                      ],
-                      borderRadius: BorderRadius.only(
-                        bottomRight: Radius.circular(15),
-                        topLeft: Radius.circular(15),
+                        decoration: const BoxDecoration(
+                          color: Colors.white,
+                          boxShadow: [
+                            BoxShadow(
+                              blurRadius: 8,
+                              color: Color.fromRGBO(0, 0, 0, 0.3),
+                              offset: Offset(0, 0),
+                              spreadRadius: 4,
+                            ),
+                          ],
+                          borderRadius: BorderRadius.only(
+                            bottomRight: Radius.circular(15),
+                            topLeft: Radius.circular(15),
+                          ),
+                        ),
                       ),
-                    ),
-                  ),
-                  Expanded(
-                    child: SizedBox(
-                      child: ListView.builder(
-                        padding: const EdgeInsets.only(bottom: 30),
-                        itemCount: view.articles!.length,
-                        shrinkWrap: true,
-                        itemBuilder: (_, index) {
-                          var time = DateFormat('MMM, d')
-                              .format(view.articles![index].publishedAt);
-                          return NewsBody(
-                            image: view.articles![index].urlToImage,
-                            source: view.articles![index].source.name,
-                            title: view.articles![index].title,
-                            url: view.articles![index].url,
-                            time: time,
-                          );
-                        },
+                      Expanded(
+                        child: SizedBox(
+                          child: ListView.builder(
+                            padding: const EdgeInsets.only(bottom: 30),
+                            itemCount: view.articles!.length,
+                            shrinkWrap: true,
+                            itemBuilder: (_, index) {
+                              var time = DateFormat('MMM, d')
+                                  .format(view.articles![index].publishedAt);
+                              return NewsBody(
+                                image: view.articles![index].urlToImage,
+                                source: view.articles![index].source.name,
+                                title: view.articles![index].title,
+                                url: view.articles![index].url,
+                                time: time,
+                              );
+                            },
+                          ),
+                        ),
                       ),
-                    ),
+                    ],
                   ),
-                ],
-              ),
-            ),
+                ),
     );
   }
 }

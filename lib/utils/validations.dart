@@ -5,24 +5,24 @@ import 'package:advansio_test/utils/utils.dart';
 class Validations {
   // the regex only allows letters
   RegExp expressionForOnlyLetter =
-      new RegExp(r"[^a-z\s]", caseSensitive: false);
+      RegExp(r"[^a-z\s]", caseSensitive: false);
 
   // the regex only allows letters and numbers
-  RegExp expressionForOnlyLetterAndNumbers = new RegExp(r'^[a-zA-Z0-9\s]+$');
-  RegExp expressionForOnlySpaceBetweenWords = new RegExp(r'^\w+\s+\w+');
+  RegExp expressionForOnlyLetterAndNumbers = RegExp(r'^[a-zA-Z0-9\s]+$');
+  RegExp expressionForOnlySpaceBetweenWords = RegExp(r'^\w+\s+\w+');
 
   // the regex only allows numbers
-  RegExp expressionForOnlyNumbers = new RegExp(r'^[0-9.]+$');
+  RegExp expressionForOnlyNumbers = RegExp(r'^[0-9.]+$');
 
   // the regex only allows numbers and decimals
   RegExp expressionForOnlyNumbersAndDecimals =
-      new RegExp(r'^(?=\D*(?:\d\D*){1,12}$)\d+(?:\.\d{1,4})?$');
+      RegExp(r'^(?=\D*(?:\d\D*){1,12}$)\d+(?:\.\d{1,4})?$');
 
   // email validation
   static String? email(email) {
     Pattern pattern =
         r'^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$';
-    RegExp regex = new RegExp(pattern as String);
+    RegExp regex = RegExp(pattern as String);
 
     if (email.isEmpty || email.trim().isEmpty) {
       return "Email is required";
@@ -44,8 +44,7 @@ class Validations {
       return 'First name is required';
     }
     // check if the name only contain letters
-    else if (Validations().expressionForOnlyLetter.allMatches(value).length >
-        0) {
+    else if (Validations().expressionForOnlyLetter.allMatches(value).isNotEmpty) {
       return 'Only letters are allowed';
     } else if (value.length < 3) {
       return 'Must be 3 or more characters';
@@ -62,8 +61,7 @@ class Validations {
       return 'Last name is required';
     }
     // check if the name only contain letters
-    else if (Validations().expressionForOnlyLetter.allMatches(value).length >
-        0) {
+    else if (Validations().expressionForOnlyLetter.allMatches(value).isNotEmpty) {
       return 'Only letters are allowed';
     } else if (value.length < 3) {
       return 'Must be 3 or more characters';

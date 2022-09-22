@@ -36,7 +36,7 @@ class SearchAreaTextField extends StatelessWidget {
               Flexible(
                 child: TextFormField(
                   decoration: InputDecoration(
-                    contentPadding: EdgeInsets.all(0.0),
+                    contentPadding: const EdgeInsets.all(0.0),
                     hintText: hintText ?? 'search name or number..',
                     hintStyle: const TextStyle(
                       fontSize: 14,
@@ -101,7 +101,7 @@ class SelectWidget extends StatelessWidget {
                     ),
                   ),
                   Padding(
-                    padding: EdgeInsets.all(0.0),
+                    padding: const EdgeInsets.all(0.0),
                     child: Icon(
                       icon!,
                       color: Colors.grey,
